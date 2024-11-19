@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Alunos - USP Turma 242</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="form-container">
+    <h1>Cadastro de Alunos - USP Turma 242</h1>
+    <p>Olá, sou Lucas Delamura, professor de inglês com 8 anos de experiência. Nossas aulas são dinâmicas, com foco no aprendizado acelerado.</p>
+    
+    <form id="studentForm">
+      <label for="name">Nome:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="phone">Telefone:</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <p>Já estudou antes?</p>
+      <label><input type="radio" name="studiedBefore" value="Sim" required> Sim</label>
+      <label><input type="radio" name="studiedBefore" value="Não" required> Não</label>
+
+      <p>Me considero:</p>
+      <label><input type="radio" name="level" value="Básico" required> Básico</label>
+      <label><input type="radio" name="level" value="Intermediário" required> Intermediário</label>
+      <label><input type="radio" name="level" value="Avançado" required> Avançado</label>
+
+      <label for="observation">Observação:</label>
+      <textarea id="observation" name="observation"></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
