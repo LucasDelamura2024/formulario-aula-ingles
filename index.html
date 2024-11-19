@@ -10,21 +10,22 @@
 </head>
 <body>
   <!-- Header -->
-  <header class="bg-primary text-white text-center p-3">
-    <h1>Cadastro de Alunos</h1>
+  <header class="bg-primary text-white text-center p-3 rounded-bottom shadow">
+    <h1><i class="fas fa-user-graduate"></i> Cadastro de Alunos</h1>
     <p>USP Turma 242 - Curso de Inglês</p>
+    <small>Formulário desenvolvido por Lucas Delamura</small>
   </header>
 
   <!-- Cards Section -->
   <div class="container mt-4">
-    <h2 class="text-center mb-4">Perguntas Frequentes</h2>
+    <h2 class="text-center mb-4"><i class="fas fa-question-circle"></i> Perguntas Frequentes</h2>
     <div class="row g-3">
       <!-- Card 1 -->
       <div class="col-md-4">
-        <div class="card flip-card">
+        <div class="card flip-card shadow-sm">
           <div class="flip-card-inner">
-            <div class="flip-card-front text-center bg-info text-white">
-              <h5>O que é Metodologia Ativa?</h5>
+            <div class="flip-card-front text-center bg-light text-primary">
+              <h5><i class="fas fa-lightbulb"></i> O que é Metodologia Ativa?</h5>
             </div>
             <div class="flip-card-back p-3">
               <p>A Metodologia Ativa coloca o aluno no centro do aprendizado, promovendo participação ativa através de práticas e problematizações.</p>
@@ -34,10 +35,10 @@
       </div>
       <!-- Card 2 -->
       <div class="col-md-4">
-        <div class="card flip-card">
+        <div class="card flip-card shadow-sm">
           <div class="flip-card-inner">
-            <div class="flip-card-front text-center bg-warning text-white">
-              <h5>Como funciona o Método Expositivo?</h5>
+            <div class="flip-card-front text-center bg-light text-primary">
+              <h5><i class="fas fa-chalkboard-teacher"></i> Como funciona o Método Expositivo?</h5>
             </div>
             <div class="flip-card-back p-3">
               <p>O Método Expositivo é baseado na apresentação oral do conteúdo pelo professor, com foco em explicações e demonstrações.</p>
@@ -47,10 +48,10 @@
       </div>
       <!-- Card 3 -->
       <div class="col-md-4">
-        <div class="card flip-card">
+        <div class="card flip-card shadow-sm">
           <div class="flip-card-inner">
-            <div class="flip-card-front text-center bg-success text-white">
-              <h5>Como funcionam as Aulas Online?</h5>
+            <div class="flip-card-front text-center bg-light text-primary">
+              <h5><i class="fas fa-video"></i> Como funcionam as Aulas Online?</h5>
             </div>
             <div class="flip-card-back p-3">
               <p>As aulas online utilizam plataformas digitais para facilitar o aprendizado remoto, oferecendo flexibilidade e interatividade.</p>
@@ -63,24 +64,24 @@
 
   <!-- Form Section -->
   <div class="container mt-5">
-    <div class="card shadow">
+    <div class="card shadow-lg">
       <div class="card-body">
-        <h2 class="card-title text-center">Formulário de Cadastro</h2>
+        <h2 class="card-title text-center"><i class="fas fa-clipboard-list"></i> Formulário de Cadastro</h2>
         <form id="studentForm">
           <div class="mb-3">
-            <label for="name" class="form-label">Nome:</label>
-            <input type="text" id="name" name="name" class="form-control" required>
+            <label for="name" class="form-label"><i class="fas fa-user"></i> Nome:</label>
+            <input type="text" id="name" name="name" class="form-control rounded" required>
           </div>
           <div class="mb-3">
-            <label for="email" class="form-label">Email:</label>
-            <input type="email" id="email" name="email" class="form-control" required>
+            <label for="email" class="form-label"><i class="fas fa-envelope"></i> Email:</label>
+            <input type="email" id="email" name="email" class="form-control rounded" required>
           </div>
           <div class="mb-3">
-            <label for="phone" class="form-label">Telefone:</label>
-            <input type="tel" id="phone" name="phone" class="form-control" required>
+            <label for="phone" class="form-label"><i class="fas fa-phone"></i> Telefone:</label>
+            <input type="tel" id="phone" name="phone" class="form-control rounded" required>
           </div>
           <div class="mb-3">
-            <label class="form-label">Já estudou antes?</label>
+            <label class="form-label"><i class="fas fa-graduation-cap"></i> Já estudou antes?</label>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="studiedBefore" value="Sim" required>
               <label class="form-check-label">Sim</label>
@@ -91,18 +92,18 @@
             </div>
           </div>
           <div class="mb-3">
-            <label class="form-label">Me considero:</label>
-            <select name="level" class="form-select" required>
+            <label class="form-label"><i class="fas fa-chart-line"></i> Me considero:</label>
+            <select name="level" class="form-select rounded" required>
               <option value="Básico">Básico</option>
               <option value="Intermediário">Intermediário</option>
               <option value="Avançado">Avançado</option>
             </select>
           </div>
           <div class="mb-3">
-            <label for="observation" class="form-label">Observação:</label>
-            <textarea id="observation" name="observation" class="form-control" rows="3"></textarea>
+            <label for="observation" class="form-label"><i class="fas fa-sticky-note"></i> Observação:</label>
+            <textarea id="observation" name="observation" class="form-control rounded" rows="3"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary w-100">Enviar <i class="fas fa-paper-plane"></i></button>
+          <button type="submit" class="btn btn-primary w-100"><i class="fas fa-paper-plane"></i> Enviar</button>
         </form>
       </div>
     </div>
@@ -110,7 +111,11 @@
 
   <!-- Footer -->
   <footer class="bg-dark text-white text-center p-3 mt-5">
-    <p>Entre em contato pelo WhatsApp: <a href="https://wa.me/5511919602876" class="text-success"><i class="fab fa-whatsapp"></i> (11) 95198-5714</a></p>
+    <p>Entre em contato pelo WhatsApp: 
+      <a href="https://wa.me/5511919602876" class="btn btn-success">
+        <i class="fab fa-whatsapp"></i> (11) 95198-5714
+      </a>
+    </p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
