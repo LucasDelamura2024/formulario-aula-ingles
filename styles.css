@@ -54,3 +54,9 @@ h1, h2 {
 footer p {
   font-size: 1rem;
 }
+
+#anxietyValue {
+  font-weight: bold;
+}
+
+

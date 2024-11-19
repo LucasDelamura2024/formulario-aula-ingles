@@ -62,6 +62,26 @@
     </div>
   </div>
 
+  <!-- Modal de Sucesso -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-success" id="successModalLabel">🎉 Parabéns!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <p>Olá, Teacher Lucas Delamura aqui!
+          <br>Passando por aqui, para dizer que você está no caminho certo! 🚀</p>
+        <p>Seu cadastro foi enviado com sucesso.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
   <!-- Form Section -->
   <div class="container mt-5">
     <div class="card shadow-lg">
@@ -81,7 +101,7 @@
             <input type="tel" id="phone" name="phone" class="form-control rounded" required>
           </div>
           <div class="mb-3">
-            <label class="form-label"><i class="fas fa-graduation-cap"></i> Já estudou antes?</label>
+            <label class="form-label"><i class="fas fa-graduation-cap"></i> Já estudou Inglês antes?</label>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="studiedBefore" value="Sim" required>
               <label class="form-check-label">Sim</label>
@@ -91,6 +111,17 @@
               <label class="form-check-label">Não</label>
             </div>
           </div>
+          <div class="mb-3">
+            <label for="startDate" class="form-label"><i class="fas fa-calendar-alt"></i> Data de Início:</label>
+            <input type="date" id="startDate" name="startDate" class="form-control rounded" required>
+          </div>
+          
+          <div class="mb-3">
+            <label for="anxietyLevel" class="form-label"><i class="fas fa-chart-bar"></i> Nível de Ansiedade para Começar (0-10):</label>
+            <input type="range" id="anxietyLevel" name="anxietyLevel" class="form-range" min="0" max="10" step="1" oninput="updateAnxietyValue()" required>
+            <div class="text-primary mt-1">Nível selecionado: <span id="anxietyValue">5</span></div>
+          </div>
+          
           <div class="mb-3">
             <label class="form-label"><i class="fas fa-chart-line"></i> Me considero:</label>
             <select name="level" class="form-select rounded" required>
@@ -108,17 +139,46 @@
       </div>
     </div>
   </div>
+ <!-- WhatsApp Button 
+  <div class="mb-3">
+    <label for="userName" class="form-label"><i class="fas fa-user"></i> Digite seu nome:</label>
+    <input type="text" id="userName" class="form-control rounded" placeholder="Seu nome aqui" required>
+  </div>
+  
+  <div class="text-center mt-3">
+    <button id="whatsAppButton" class="btn btn-success rounded-pill">
+      <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+    </button>
+  </div>
+  -->
 
   <!-- Footer -->
   <footer class="bg-dark text-white text-center p-3 mt-5">
     <p>Entre em contato pelo WhatsApp: 
       <a href="https://wa.me/5511919602876" class="btn btn-success">
-        <i class="fab fa-whatsapp"></i> (11) 95198-5714
+        <i class="fab fa-whatsapp"></i> (11) 91960-2876
       </a>
     </p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
+
+  <script>
+    document.getElementById('studentForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Evita o envio padrão do formulário
+      
+      // Inicializa o modal de sucesso
+      const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+      successModal.show();
+      
+      // Reseta o formulário após exibir o modal
+      this.reset();
+    });
+  </script>
+
+  
+
+
 </body>
 </html>

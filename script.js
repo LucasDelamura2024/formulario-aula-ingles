@@ -7,3 +7,28 @@ form.addEventListener('submit', e => {
     .then(response => alert('Formulário enviado com sucesso!'))
     .catch(error => console.error('Erro!', error.message));
 });
+
+
+
+  function updateAnxietyValue() {
+    document.getElementById('anxietyValue').textContent = document.getElementById('anxietyLevel').value;
+  }
+
+  // Define valor padrão
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('anxietyValue').textContent = document.getElementById('anxietyLevel').value;
+  });
+
+
+  document.getElementById('whatsAppButton').addEventListener('click', function() {
+    const name = document.getElementById('userName').value.trim();
+    if (name === '') {
+      alert('Por favor, insira seu nome antes de continuar.');
+      return;
+    }
+
+    const message = `Olá ${name}, gostaria de falar sobre as aulas de inglês! 📚✍️`;
+    const whatsappUrl = `https://wa.me/5511951985714?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  });
+
