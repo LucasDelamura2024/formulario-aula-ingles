@@ -34,7 +34,7 @@ async function sendEmail(data) {
       <li><strong>Nível de Inglês:</strong> ${level}</li>
       <li><strong>Observação:</strong> ${observation}</li>
     </ul>
-  `;
+  `};
   const mailOptions = {
     from: '78delamura@gmail.com',
     to: email,
@@ -43,15 +43,7 @@ async function sendEmail(data) {
     html: emailBody,
   };
 
-  try {
-    const info = await transporter.sendMail(mailOptions);
-    console.log('E-mail enviado:', info.response);
-    return { success: true, message: 'E-mail enviado com sucesso!' };
-  } catch (error) {
-    console.error('Erro ao enviar o e-mail:', error);
-    return { success: false, message: 'Erro ao enviar o e-mail.' };
-  }
-}
+
 
 // Endpoint para envio de e-mail
 app.post('/send-email', async (req, res) => {
