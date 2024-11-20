@@ -89,17 +89,21 @@
         <h2 class="card-title text-center"><i class="fas fa-clipboard-list"></i> Formulário de Cadastro</h2>
         <form id="studentForm">
           <div class="mb-3">
+            <!-- Nome  -->
             <label for="name" class="form-label"><i class="fas fa-user"></i> Nome:</label>
             <input type="text" id="name" name="name" class="form-control rounded" required>
           </div>
+          <!-- Email -->
           <div class="mb-3">
             <label for="email" class="form-label"><i class="fas fa-envelope"></i> Email:</label>
             <input type="email" id="email" name="email" class="form-control rounded" required>
           </div>
+          <!-- Telefone -->
           <div class="mb-3">
             <label for="phone" class="form-label"><i class="fas fa-phone"></i> Telefone:</label>
             <input type="tel" id="phone" name="phone" class="form-control rounded" required>
           </div>
+          <!-- Curso -->
           <div class="mb-3">
             <label class="form-label"><i class="fas fa-graduation-cap"></i> Já estudou Inglês antes?</label>
             <div class="form-check">
@@ -111,17 +115,22 @@
               <label class="form-check-label">Não</label>
             </div>
           </div>
+          <!-- Data de Início -->
+          <!-- Data de Início -->
           <div class="mb-3">
-            <label for="startDate" class="form-label"><i class="fas fa-calendar-alt"></i> Data de Início:</label>
-            <input type="date" id="startDate" name="startDate" class="form-control rounded" required>
+            <label name="startDate" for="startDate" class="form-label"><i class="fas fa-calendar-alt"></i> Data de Início:</label>
+            <input type="date" id="startDate" name="startDate" class="form-control rounded" value="2024-12-04" min="2024-12-04" max="2024-12-04" required>
           </div>
           
-          <div class="mb-3">
-            <label for="anxietyLevel" class="form-label"><i class="fas fa-chart-bar"></i> Nível de Ansiedade para Começar (0-10):</label>
-            <input type="range" id="anxietyLevel" name="anxietyLevel" class="form-range" min="0" max="10" step="1" oninput="updateAnxietyValue()" required>
-            <div class="text-primary mt-1">Nível selecionado: <span id="anxietyValue">5</span></div>
-          </div>
-          
+          <!-- Nível de Ansiedade -->
+<!-- Nível de Ansiedade -->
+<div class="mb-3">
+  <label name="anxietyLevel" for="anxietyLevel" class="form-label"><i class="fas fa-chart-bar"></i> Nível de Ansiedade para Começar (0-10):</label>
+  <input type="range" id="anxietyLevel" name="anxietyLevel" class="form-range" min="0" max="10" step="1" value="5" oninput="updateAnxietyValue()" required>
+  <div class="text-primary mt-1">Nível selecionado: <span id="anxietyValue">5</span></div>
+</div>
+
+          <!-- Nível de Inglês -->
           <div class="mb-3">
             <label class="form-label"><i class="fas fa-chart-line"></i> Me considero:</label>
             <select name="level" class="form-select rounded" required>
@@ -130,6 +139,7 @@
               <option value="Avançado">Avançado</option>
             </select>
           </div>
+          <!-- Observação -->
           <div class="mb-3">
             <label for="observation" class="form-label"><i class="fas fa-sticky-note"></i> Observação:</label>
             <textarea id="observation" name="observation" class="form-control rounded" rows="3"></textarea>
@@ -162,6 +172,7 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
   <script src="script.js"></script>
 
   <script>
@@ -177,7 +188,86 @@
     });
   </script>
 
-  
+<script>
+  function updateAnxietyValue() {
+    const anxietyValue = document.getElementById('anxietyLevel').value;
+    document.getElementById('anxietyValue').textContent = anxietyValue;
+  }
+
+  // Inicializa o valor do span com o valor padrão do input range
+  document.addEventListener('DOMContentLoaded', function() {
+    updateAnxietyValue();
+  });
+</script>
+
+<!-- EmailJS 
+<script>
+  (function() {
+    emailjs.init('service_mxex7hl'); // Substitua 'seu_user_id' pelo seu userID real do EmailJS
+  })();
+
+  function sendEmail(event) {
+    event.preventDefault();
+
+    // Coleta os dados do formulário
+    const formData = {
+      name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      phone: document.getElementById('phone').value,
+      course: document.getElementById('course').value,
+      startDate: document.getElementById('startDate').value,
+      anxietyLevel: document.getElementById('anxietyLevel').value,
+      level: document.getElementById('level').value,
+      observation: document.getElementById('observation').value
+    };
+
+    // Envia o email
+    emailjs.send('service_mxex7hl', 'template_eb938ua', formData)
+      .then(function(response) {
+        console.log('SUCCESS!', response.status, response.text);
+        alert('Email enviado com sucesso!');
+      }, function(error) {
+        console.error('FAILED...', error);
+        alert('Erro ao enviar o email.');
+      });
+
+    // Limpa o formulário após o envio
+    event.target.reset();
+  }
+</script> -->
+
+<script>
+document.getElementById('studentForm').addEventListener('submit', async function(event) {
+  event.preventDefault();
+
+  const formData = new FormData(this);
+  const data = Object.fromEntries(formData.entries());
+
+  try {
+    const response = await fetch('http://localhost:3000/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (response.ok) {
+      const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+      successModal.show();
+      this.reset();
+    } else {
+      alert('Erro ao enviar o e-mail.');
+    }
+  } catch (error) {
+    console.error('Erro na requisição:', error);
+    alert('Erro ao tentar enviar o e-mail.');
+  }
+});
+
+
+</script>
+
 
 
 </body>
