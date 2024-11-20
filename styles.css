@@ -145,3 +145,8 @@ footer p {
   font-weight: bold;
 }
 
+/* Data de Início */
+  input[type="date"][readonly]::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+
